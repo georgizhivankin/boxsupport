@@ -54,22 +54,21 @@ create database boxsupport;
 
 and change the database name, host, username and password to match the name of the database you created and the credentials of your particular server
 6. Next, you need to load the database schema into the newly created database. In order to do it, you have two options:
-    6.1. Through the special Laravel migration I have created. Simply go into the main directory of the application and from a command line or shell, execute the following PHP command:
-
-```
-PHP artisan migrate
-```
-
-If artisan complains that the aplication is currently in production mode, type 'Yes' and then press enter to confirm the operation.
-If you see a successful migration message similar to this:
-
-```
-Generating autoload files
-Generating optimized class loader
-```
-
-You can assume that the data is being loaded, but just in case, go to your database and see whether any tables were imported. You should be able to see 6 tables in total. The original 5 tables from the data.sql file you supplied as part of the test instructions and a table called 'migrations' that is used internally by the Laravel framework to track its own migrations.
-    6.2. Through an own database software. I have put the data.sql file into the following directory, from where you can take it and import it either with mysqldump, PHPMyAdmin, etc. `/app_path/app/database/seeds/data.sql`
+  6.1. Through the special Laravel migration I have created. Simply go into the main directory of the application and from a command line or shell, execute the following PHP command:
+  ```
+  PHP artisan migrate
+  ```
+  
+  If artisan complains that the aplication is currently in production mode, type 'Yes' and then press enter to confirm the operation.
+  If you see a successful migration message similar to this:
+  
+  ```
+  Generating autoload files
+  Generating optimized class loader
+  ```
+  
+  You can assume that the data is being loaded, but just in case, go to your database and see whether any tables were imported. You should be able to see 6 tables in total. The original 5 tables from the data.sql file you supplied as part of the test instructions and a table called 'migrations' that is used internally by the Laravel framework to track its own migrations.
+  6.2. Through an own database software. I have put the data.sql file into the following directory, from where you can take it and import it either with mysqldump, PHPMyAdmin, etc. `/app_path/app/database/seeds/data.sql`
 7. As I have included all of my dependancies and components within the zip file, you should be ready to go, but if you have any issues, please contact me and I will try to help you to solve whatever happens not to be working as expected. For your convenience, I have left my .git directory within the main `app_path` directory, so if you have git installed on your system, you can do:
 
 ```
@@ -111,7 +110,7 @@ In addition, I have written everything in the directory called 'boxsupport', whi
 
 ## Observations, explanations and justifications
 
-As this was a small task, I decided to follow the MVC pattern and mix in a lot of business logic within the controllers of the app. In particular, the difference between products and boxes is a bit blurred because the products did not warrant their own controller, therefore, I have included the products' functionality into some unused methods of the box controller. I am aware that in a production environment, I should stick to the 'separation of concerns' principle as much as possible and either use a lot of dependency injection to manage trivial things such as pagination, sorting and data validation, or should use the repository pattern, in which case I would have to write my own repositories to abstract out Framework’s common functionality such as database querying, sending of emails, etc., that are then injected into the framework and could be easily replaced if such a need arises.
+As this was a small task, I decided to follow the MVC pattern and mix in a lot of business logic within the controllers of the app. In particular, the difference between products and boxes is a bit blurred because the products did not warrant their own controller, therefore, I have included the products' functionality into some unused methods of the box controller. I am aware that in a production environment, I should stick to the 'separation of concerns' principle as much as possible and either use a lot of dependency injection to manage trivial things such as pagination, sorting and data validation, or should use the repository pattern, in which case I would have to write my own repositories to abstract out Framework’s common functionality such as database querying, sending of emails, etc., that could then be injected into the framework and could be easily replaced if such a need arise.
 
 It was a bit difficult to define all relationships in Laravel's orm component called Eloquent as initially the company I wrote this app for, supplied their own MySQL schema that the app had to conform to, and as their custom tables did not conform to the rules Eloquent uses to figure out the different relationships, in some models, I had to create additional models to get the proper relation, or to simply format the delivery date properly, for example. Ideally, in a live environment, it should be possible to match all individual tables to their own models and manage them almost exclusively with the ORM of your choice, without needing a lot of extra methods or raw MySQL queries.
 
@@ -131,4 +130,4 @@ Instead of a normal 404 page not found error, or a custom error page, you would 
 
 # Conclusion
 
-I hope I have explained why I have decided to write the app the way I did it and the limitations of my approach. I know that it is not perfect from a commercial standpoint, but I believe that it shows enough PHP / MySQL, HTML and CSS skills for you to familiarise yourself with my thinking and style of coding.
+I hope I have explained why I have decided to write the app the way I did it and the limitations of my approach. I know that it is not perfect from a commercial standpoint, but I believe that it shows enough PHP / MySQL, HTML and CSS skills for you to familiarise yourself with my thinking and coding style.
