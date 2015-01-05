@@ -4,7 +4,7 @@
 
 This is a test app that was written as part of the recruitment process for a PHP Developer position. As I spent quite some time doing the app, I thought that it would be a good idea to upload it to my Github account so that potential employers or partners could familiarise themselves with my style of coding by looking at the test app.
 
-**Please note that the Readme is quite long because originally it was meant to be reviewed by the recruiters at the company which I wrote the app for, but as it contains really useful info, I decided to retain it as is.
+**Please note that the Readme is quite long because originally it was meant to be reviewed by the recruiters at the company which I wrote the app for, but as it contains really useful info, I decided to retain it as is.**
 
 ## Technologies and Components Used
 
@@ -17,20 +17,26 @@ The app is written in object-oriented PHP using the popular [Laravel Framework](
 - jQuery 1.11.1
 - jQuery UI is also included as an asset just in case, but is not used anywhere
 
-**Please note that all of the PHP and Java Script libraries mentioned above are contained within the zip archive, so there should be no need for you to do anything else to run the app. There is a small script that Twitter Bootstrap uses for IE debugging purposes which is hosted on the Internet and is called from a CDN directly, so I would advise you to run the app on a machine that has Internet access, in case you are using IE 8/9, etc.*
+**Please note that all of the PHP and Java Script libraries mentioned above are contained within the zip archive, so there should be no need for you to do anything else to run the app. There is a small script that Twitter Bootstrap uses for IE debugging purposes which is hosted on the Internet and is called from a CDN directly, so I would advise you to run the app on a machine that has Internet access, in case you are using IE 8/9, etc.**
 
 ## Installation Instructions
 
 In order to install the app, you need to do the following:
 1. Extract the zip file that contains the app into a directory on your server. From now on, I will refer to this directory as `app_path`.
-2. Go into your database software and create a new database named 'boxsupport' or whatever you wish to call it (the default name I used in the config is 'boxsupport').
+2. Pull the Laravel Framework and its dependencies with composer by going into the route directory of the app and executing the following:
+
+```
+PHP composer.phar install
+```
+
+3. Go into your database software and create a new database named 'boxsupport' or whatever you wish to call it (the default name I used in the config is 'boxsupport').
 If you are using the default MySQL command line interface, you can do:
 
 ```
 create database boxsupport;
 ```
 
-3. Go and edit the following file, /pathh_to_app/app/config/database.php and find the section where it says:
+4. Go and edit the following file, /pathh_to_app/app/config/database.php and find the section where it says:
 
 ```
 'mysql' => array(
@@ -46,8 +52,8 @@ create database boxsupport;
 ```
 
 and change the database name, host, username and password to match the name of the database you created and the credentials of your particular server
-4. Next, you need to load the database schema into the newly created database. In order to do it, you have two options:
-    4.1. Through the special Laravel migration I have created. Simply go into the main directory of the application and from a command line or shell, execute the following PHP command:
+5. Next, you need to load the database schema into the newly created database. In order to do it, you have two options:
+    5.1. Through the special Laravel migration I have created. Simply go into the main directory of the application and from a command line or shell, execute the following PHP command:
 
 ```
 PHP artisan migrate
@@ -61,7 +67,7 @@ Generating optimized class loader
 ```
 
 You can assume that the data is being loaded, but just in case, go to your database and see whether any tables were imported. You should be able to see 6 tables in total. The original 5 tables from the data.sql file you supplied as part of the test instructions and a table called 'migrations' that is used internally by the Laravel framework to track its own migrations.
-    4.2. Through an own database software. I have put the data.sql file into the following directory, from where you can take it and import it either with mysqldump, PHPMyAdmin, etc. `/app_path/app/database/seeds/data.sql`
+    5.2. Through an own database software. I have put the data.sql file into the following directory, from where you can take it and import it either with mysqldump, PHPMyAdmin, etc. `/app_path/app/database/seeds/data.sql`
 5. As I have included all of my dependancies and components within the zip file, you should be ready to go, but if you have any issues, please contact me and I will try to help you to solve whatever happens not to be working as expected. For your convenience, I have left my .git directory within the main `app_path` directory, so if you have git installed on your system, you can do:
 
 ```
@@ -73,6 +79,7 @@ If git says that the directory is tracked by git, you can then do:
 ```
 GIT LOG
 ```
+
 to check the changes I have made since starting the project. In addition, if Laravel complains that any dependancies might be missing or does not work as expected, you can go to the main app directory and run
 `PHP composer.phar update`
 to fetch any missing or newer dependencies.
