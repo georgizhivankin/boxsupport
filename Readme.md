@@ -22,6 +22,7 @@ The app is written in object-oriented PHP using the popular [Laravel Framework](
 ## Installation Instructions
 
 In order to install the app, you need to do the following:
+
 1. Extract the zip file that contains the app into a directory on your server. From now on, I will refer to this directory as `app_path`.
 2. Download and install the [Composer package manager for PHP](https://getcomposer.org/).
 3. Pull the Laravel Framework and its dependencies with composer by going into the route directory of the app and executing the following:
