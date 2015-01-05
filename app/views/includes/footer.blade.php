@@ -1,0 +1,1 @@
+<p class="small text-right">{{Config::get('appInfo.name')}} V {{Config::get('appInfo.version')}} copyright &copy; {{Config::get('appInfo.author')}}, {{date('Y', time())}}. All rights reserved.</p>

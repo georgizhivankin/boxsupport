@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+/* Basic formatting for tables */
+table td {
+	padding: 2px 5px;
+}
+table img {
+	max-width: 320px !important;
+}
+/* Make an error class red for errors */
+.error {
+	color: #F00;
+}
+/* Basic style for the container element */
+.container {
+	border: 1px solid #DDD;
+	margin: 1em auto 1em auto;
+}
+
+	
