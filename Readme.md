@@ -26,20 +26,15 @@ In order to install the app, you need to do the following:
 1. Extract the zip file that contains the app into a directory on your server. From now on, I will refer to this directory as `app_path`.
 2. Download and install the [Composer package manager for PHP](https://getcomposer.org/).
 3. Pull the Laravel Framework and its dependencies with composer by going into the route directory of the app and executing the following:
-
 ```
 PHP composer.phar install
 ```
-
 4. Go into your database software and create a new database named 'boxsupport' or whatever you wish to call it (the default name I used in the config is 'boxsupport').
 If you are using the default MySQL command line interface, you can do:
-
 ```
 create database boxsupport;
 ```
-
 5. Go and edit the following file, /pathh_to_app/app/config/database.php and find the section where it says:
-
 ```
 'mysql' => array(
 			'driver'    => 'mysql',
@@ -52,36 +47,28 @@ create database boxsupport;
 			'prefix'    => '',
 		)
 ```
-
 and change the database name, host, username and password to match the name of the database you created and the credentials of your particular server
 6. Next, you need to load the database schema into the newly created database. In order to do it, you have two options:
   6.1. Through the special Laravel migration I have created. Simply go into the main directory of the application and from a command line or shell, execute the following PHP command:
   ```
   PHP artisan migrate
   ```
-  
   If artisan complains that the aplication is currently in production mode, type 'Yes' and then press enter to confirm the operation.
   If you see a successful migration message similar to this:
-  
   ```
   Generating autoload files
   Generating optimized class loader
   ```
-  
-  You can assume that the data is being loaded, but just in case, go to your database and see whether any tables were imported. You should be able to see 6 tables in total. The original 5 tables from the data.sql file you supplied as part of the test instructions and a table called 'migrations' that is used internally by the Laravel framework to track its own migrations.
+    You can assume that the data is being loaded, but just in case, go to your database and see whether any tables were imported. You should be able to see 6 tables in total. The original 5 tables from the data.sql file that contains the schema and a table called 'migrations' that is used internally by the Laravel framework to track the deployment of the migrations.
   6.2. Through an own database software. I have put the data.sql file into the following directory, from where you can take it and import it either with mysqldump, PHPMyAdmin, etc. `/app_path/app/database/seeds/data.sql`
-7. As I have included all of my dependancies and components within the zip file, you should be ready to go, but if you have any issues, please contact me and I will try to help you to solve whatever happens not to be working as expected. For your convenience, I have left my .git directory within the main `app_path` directory, so if you have git installed on your system, you can do:
-
+7. Now you should be ready to go, but if you have any issues, please contact me and I will try to help you to solve whatever happens not to be working as expected. For your convenience, I have left my .git directory within the main `app_path` directory, so if you have git installed on your system, you can do:
 ```
 GIT status
 ```
-
 If git says that the directory is tracked by git, you can then do:
-
 ```
 GIT LOG
 ```
-
 to check the changes I have made since starting the project. In addition, if Laravel complains that any dependancies might be missing or does not work as expected, you can go to the main app directory and run
 `PHP composer.phar update`
 to fetch any missing or newer dependencies.
